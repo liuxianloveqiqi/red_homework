@@ -35,7 +35,7 @@ func alarmClockGoroutine(index int) {
 		}
 	}
 	alarmClock := alarmClockSlice[index]
-	fmt.Printf("\n%v号闹钟开始运行，闹钟名字：%v | 闹钟开始时间：%v小时%v分%v秒 | 闹钟是否重复：%v\n", index, alarmClock.startTime["hour"], alarmClock.startTime["minute"], alarmClock.startTime["second"], alarmClock.isRepeat)
+	fmt.Printf("\n%v号闹钟开始运行，闹钟名字：%v | 闹钟开始时间：%v小时%v分%v秒 | 闹钟是否重复：%v\n", index, alarmClock.name,alarmClock.startTime["hour"], alarmClock.startTime["minute"], alarmClock.startTime["second"], alarmClock.isRepeat)
 
 	//开始延迟
 	for {
