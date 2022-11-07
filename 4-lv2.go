@@ -18,7 +18,7 @@ var (
 type alarmClock struct {
 	//闹钟名字
 	name string
-	//闹钟运行多少小时
+	//闹钟开始时间
 	startTime map[string]int
 
 	//是否重复性
@@ -37,7 +37,7 @@ func alarmClockGoroutine(index int) {
 	alarmClock := alarmClockSlice[index]
 	fmt.Printf("\n%v号闹钟开始运行，闹钟名字：%v | 闹钟开始时间：%v小时%v分%v秒 | 闹钟是否重复：%v\n", index, alarmClock.startTime["hour"], alarmClock.startTime["minute"], alarmClock.startTime["second"], alarmClock.isRepeat)
 
-	//开始延迟X小时
+	//开始延迟
 	for {
 		select {
 		case isClose := <-alarmClock.isClose:
@@ -106,7 +106,7 @@ func menu() {
 		fmt.Println("1.我要自定义我的一次性闹钟")
 		fmt.Println("2.我要自定义我的重复性闹钟")
 		fmt.Println("3.我要删除某闹钟")
-		fmt.Println("4.我要取消某闹钟下一次的提醒")
+		
 		fmt.Printf("请输入编号(1-4)：")
 		var choose int
 		fmt.Scanln(&choose)
