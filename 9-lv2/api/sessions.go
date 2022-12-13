@@ -41,8 +41,8 @@ func SaveSession(id string, data string) error {
 
 // 读取session并加锁
 func ReadSession(id string) (string, error) {
-	mu.RLock()
-	defer mu.RUnlock()
+	mu.Lock()
+	defer mu.Unlock()
 	data, ok := sessions[id]
 	if !ok {
 		return "", errors.New("session没有找到")
