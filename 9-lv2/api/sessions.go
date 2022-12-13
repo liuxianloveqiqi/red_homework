@@ -10,7 +10,7 @@ import (
 
 var (
 	sessions map[string]string
-	mu       sync.RWMutex
+	mu       sync.Mutex
 )
 
 // 初始化
